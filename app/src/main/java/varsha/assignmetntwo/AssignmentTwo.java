@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,9 @@ public class AssignmentTwo extends AppCompatActivity {
 
     Button submit_button;
     TextInputEditText input_edittext_name, input_edittext_phone, input_edittext_address, input_edittext_city, input_edittext_zip, input_edittext_email, input_edittext_dob;
-    TextInputLayout input_layout_name, input_layout_phone, input_layout_area, input_layout_address, input_layout_city, input_layout_state, input_layout_zip, input_layout_email, input_layout_dob;
+    TextInputLayout input_layout_name, input_layout_phone, input_layout_address, input_layout_city, input_layout_zip, input_layout_email, input_layout_dob;
+    RelativeLayout relaytivelayout_area, relaytivelayout_state;
+    Spinner select_area, select_state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +30,19 @@ public class AssignmentTwo extends AppCompatActivity {
         init();
 
 
-        String[] COUNTRIES = new String[]{"Item 1", "Item 2", "Item 3", "Item 4"};
+        String[] AREAS = new String[]{"Area", "Durga st", "Kambar St", "Rama Nagar"};
+        String[] STATES = new String[]{"State","Chennai", "Madurai", "Salem"};
 
-        ArrayAdapter<String> adapter =
+        ArrayAdapter<String> adapterarea =
                 new ArrayAdapter<>(
                         getApplicationContext(),
-                        R.layout.dropdown_menu,
-                        COUNTRIES);
+                        android.R.layout.simple_list_item_1,
+                        AREAS);
 
-        Spinner editTextFilledExposedDropdown =
-                findViewById(R.id.select_area);
-        editTextFilledExposedDropdown.setAdapter(adapter);
+        select_area.setAdapter(adapterarea);
 
+        ArrayAdapter<String> adapterstate = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,STATES);
+        select_state.setAdapter(adapterstate);
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,12 +59,12 @@ public class AssignmentTwo extends AppCompatActivity {
                 } else {
                     input_layout_phone.setError(null);
                 }
-//
-//                if (input_edittext_phone.getText().toString().equals("")) {
-//                    input_layout_phone.setError("Please enter your phone number");
-//                } else {
-//                    input_layout_phone.setError(null);
-//                }
+
+                if (select_area.getSelectedItemId()==0) {
+                    relaytivelayout_area.setBackgroundResource(R.drawable.redborder);
+                } else {
+                    relaytivelayout_area.setBackgroundResource(R.drawable.blackborder);
+                }
 
 
                 if (input_edittext_address.getText().toString().equals("")) {
@@ -76,11 +80,12 @@ public class AssignmentTwo extends AppCompatActivity {
                     input_layout_city.setError(null);
                 }
 
-//                if (input_edittext_phone.getText().toString().equals("")) {
-//                    input_layout_phone.setError("Please enter your phone number");
-//                } else {
-//                    input_layout_phone.setError(null);
-//                }
+                if (select_state.getSelectedItemId()==0) {
+                    relaytivelayout_state.setBackgroundResource(R.drawable.redborder);
+                } else {
+                    relaytivelayout_state.setBackgroundResource(R.drawable.blackborder);
+                }
+
 
                 if (input_edittext_zip.getText().toString().equals("")) {
                     input_layout_zip.setError("Please enter your zip");
@@ -119,13 +124,17 @@ public class AssignmentTwo extends AppCompatActivity {
 
         input_layout_name = findViewById(R.id.input_layout_name);
         input_layout_phone = findViewById(R.id.input_layout_phone);
-        input_layout_area = findViewById(R.id.input_layout_area);
         input_layout_address = findViewById(R.id.input_layout_address);
         input_layout_city = findViewById(R.id.input_layout_city);
-        input_layout_state = findViewById(R.id.input_layout_state);
         input_layout_zip = findViewById(R.id.input_layout_zip);
         input_layout_email = findViewById(R.id.input_layout_email);
         input_layout_dob = findViewById(R.id.input_layout_dob);
+
+        relaytivelayout_area = findViewById(R.id.relaytivelayout_area);
+        relaytivelayout_state = findViewById(R.id.relaytivelayout_state);
+
+        select_area = findViewById(R.id.select_area);
+        select_state = findViewById(R.id.select_state);
 
     }
 }

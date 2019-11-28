@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,42 +15,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/buttons"
-            android:layout_width="@dimen/size_150dp"
+            android:id="@+id/fadeout"
+            android:layout_width="@dimen/size_200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="@string/buttons" />
+            android:text="@string/fadeout" />
 
         <Button
-            android:id="@+id/textView"
-            android:layout_width="@dimen/size_150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/size_10dp"
-            android:text="@string/textview" />
-
-        <Button
-            android:id="@+id/animations"
-            android:layout_width="@dimen/size_150dp"
+            android:id="@+id/rorate"
+            android:layout_width="@dimen/size_200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="@dimen/size_10dp"
-            android:text="@string/animations" />
+            android:text="@string/rotate" />
 
         <Button
-            android:id="@+id/layout"
-            android:layout_width="@dimen/size_150dp"
+            android:id="@+id/blink"
+            android:layout_width="@dimen/size_200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="@dimen/size_10dp"
-            android:text="@string/layout" />
+            android:text="@string/blink" />
 
         <Button
-            android:id="@+id/assignmenttwo"
-            android:layout_width="@dimen/size_150dp"
+            android:id="@+id/zoomout"
+            android:layout_width="@dimen/size_200dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
             android:layout_marginTop="@dimen/size_10dp"
-            android:text="@string/assignmenttwo" />
+            android:text="@string/zoomout" />
 
 
     </LinearLayout>
